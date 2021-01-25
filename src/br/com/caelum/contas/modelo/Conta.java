@@ -2,7 +2,7 @@ package br.com.caelum.contas.modelo;
 
 /** 
  * Metodo para construcao da conta
- * @author Isabel Melo
+ * @author
  * 
  * */
 
