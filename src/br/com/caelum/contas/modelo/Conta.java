@@ -1,19 +1,19 @@
 package br.com.caelum.contas.modelo;
 
-/** 
+/**
  * Metodo para construcao da conta
+ * 
  * @author
  * 
- * */
+ */
 
-public class Conta {
+public abstract class Conta {
 
-	private double saldo;
+	protected double saldo;
 	private String titular;
 	private int numero;
 	private String agencia;
-	
-	
+
 	public double getSaldo() {
 		return saldo;
 	}
@@ -42,11 +42,19 @@ public class Conta {
 		this.agencia = agencia;
 	}
 
-		public void deposita (double valor) {
-		this.saldo += valor;	
+	public void deposita(double valor) {
+		this.saldo += valor;
+	}
+
+	public void saca(double valor) {
+		this.saldo -= valor;
 	}
 	
-		public void saca (double valor) {
-			this.saldo -= valor;
-		}
+	public abstract String getTipo();
+	
+	public void transfere(double valor, Conta conta) {
+		this.saca(valor);
+		conta.deposita(valor);
+	}
+
 }
